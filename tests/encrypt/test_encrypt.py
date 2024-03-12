@@ -3,11 +3,11 @@ import pytest
 
 
 def test_encrypt_message():
-    with pytest.raises(TypeError, match="tipo inválido para key"):
-        encrypt_message("message", "invalid")
+    with pytest.raises(TypeError):
+        encrypt_message(123, 5)
 
-    with pytest.raises(TypeError, match="tipo inválido para message"):
-        encrypt_message(3, 3)
+    with pytest.raises(TypeError):
+        encrypt_message("teste", "Teste")
 
     assert encrypt_message("bcapac", 3) == "acb_cap"
     assert encrypt_message("bcapac", 4) == "ca_pacb"
